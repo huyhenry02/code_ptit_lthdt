@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         TacoBox tripleBox = new TripleTacoBox();
         tripleBox.eat();

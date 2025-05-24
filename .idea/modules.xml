@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/COLLECTION007/COLLECTION007.iml" filepath="$PROJECT_DIR$/COLLECTION007/COLLECTION007.iml" />
+      <module fileurl="file://$PROJECT_DIR$/INHERITANCE009/INHERITANCE009.iml" filepath="$PROJECT_DIR$/INHERITANCE009/INHERITANCE009.iml" />
       <module fileurl="file://$PROJECT_DIR$/INTERFACE003/INTERFACE003.iml" filepath="$PROJECT_DIR$/INTERFACE003/INTERFACE003.iml" />
+      <module fileurl="file://$PROJECT_DIR$/INTERFACE005/INTERFACE005.iml" filepath="$PROJECT_DIR$/INTERFACE005/INTERFACE005.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/LTHDT.iml" filepath="$PROJECT_DIR$/.idea/LTHDT.iml" />
       <module fileurl="file://$PROJECT_DIR$/STRING006/STRING006.iml" filepath="$PROJECT_DIR$/STRING006/STRING006.iml" />
     </modules>
