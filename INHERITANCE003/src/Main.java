@@ -1,8 +1,5 @@
-package INHERITANCE003;
-
 import java.util.*;
-
-class INHERITANCE003 {
+class Main {
     public static void main(String[] args) {
         Student student = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles", "90028");
         System.out.println(student);
@@ -10,7 +7,6 @@ class INHERITANCE003 {
         student.study();
         System.out.println("Study credits " + student.credits());
     }
-    
 }
 
 class Person {

@@ -1,8 +1,4 @@
-package INHERITANCE008;
-
-import java.util.*;
-
-class INHERITANCE008 {
+class Main {
     public static void main(String[] args) {
         Student s = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
         
