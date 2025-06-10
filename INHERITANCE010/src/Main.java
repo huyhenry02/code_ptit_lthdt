@@ -1,57 +1,21 @@
-import java.util.*;
-
-class Main {
-    public static void main(String[] args) {
-        Product laptop = new Electronics("laptop", 20, 10, "Dell");
-        Product book = new Book("Harry Potter", 10, 12, "camnh");
-        User user_1 = new User("Alice", 0.0);
-        User user_2 = new User("Bob", 0.0);
-        User user_3 = new User("Charlie", 0.0);
-        
-        user_1.buyProduct(laptop, 3);
-        user_1.buyProduct(book, 10);
-        user_2.buyProduct(laptop, 1);
-        user_3.buyProduct(book, 5);
-        
-        System.out.println("====");
-        
-        System.out.println("Users with Highest Total Spent:");
-        User[] users = {user_1, user_2, user_3};
-        for (int i = 0; i < users.length - 1; i++){
-            for (int j = i + 1; j < users.length; j++) {
-                if (users[i].getTotalSpent() < users[j].getTotalSpent()) {
-                    User temp = users[i];
-                    users[i] = users[j];
-                    users[j] = temp;
-                }
-            }
-        }
-        for (int i = 0; i < users.length; i++) {
-            System.out.printf("%d. %s: $%.1f%n", i + 1, users[i].getUsername(), users[i].getTotalSpent());
-        }
-        
-        System.out.println("====");
-        
-        laptop.displayDetails();
-        System.out.println("---");
-        book.displayDetails();
-    }
-}
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 abstract class Product {
-    protected String name;
-    protected double price;
-    protected int quantity;
+    private String name;
+    private double price;
+    private int quantity;
     
     public Product(String name, double price, int quantity) {
         this.name = name;
-        this.price = price;
         this.quantity = quantity;
+        this.price = price;
     }
     
-    public abstract double calculateCost(int quantity);
-    
-    public abstract void displayDetails();
+    public double getPrice() {
+        return price;
+    }
     
     public String getName() {
         return name;
@@ -61,13 +25,20 @@ abstract class Product {
         return quantity;
     }
     
-    public void reduceQuantity(int amount) {
-        this.quantity -= amount;
+    public void reduceQuantity(int quantity) {
+        this.quantity -= quantity;
+    }
+    
+    public abstract double calculateCost(int quantity);
+    
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Price: $" + price);
+        System.out.println("Available Quantity: " + quantity);
     }
 }
 
 class Book extends Product {
-    
     private String author;
     
     public Book(String name, double price, int quantity, String author) {
@@ -75,22 +46,15 @@ class Book extends Product {
         this.author = author;
     }
     
-    public String getAuthor() {
-        return author;
-    }
-    
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-    
+    @Override
     public double calculateCost(int quantity) {
-        return this.price * quantity;
+        return this.getPrice() * quantity;
     }
     
     public void displayDetails() {
-        System.out.println("Name: " + name);
-        System.out.println("Price: $" + price);
-        System.out.println("Available Quantity: " + quantity);
+        System.out.println("Name: " + this.getName());
+        System.out.println("Price: $" + this.getPrice());
+        System.out.println("Available Quantity: " + this.getQuantity());
         System.out.println("Author: " + author);
     }
 }
@@ -103,24 +67,15 @@ class Electronics extends Product {
         this.brand = brand;
     }
     
-    public String getBrand() {
-        return brand;
-    }
-    
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-    
     @Override
     public double calculateCost(int quantity) {
-        return this.price * quantity * 1.1;
+        return this.getPrice() * quantity * 1.1;
     }
     
-    @Override
     public void displayDetails() {
-        System.out.println("Name: " + name);
-        System.out.println("Price: $" + price);
-        System.out.println("Available Quantity: " + quantity);
+        System.out.println("Name: " + this.getName());
+        System.out.println("Price: $" + this.getPrice());
+        System.out.println("Available Quantity: " + this.getQuantity());
         System.out.println("Brand: " + brand);
     }
 }
@@ -129,33 +84,76 @@ class User {
     private String username;
     private double totalSpent;
     
-    public User(String username, double totalSpent) {
+    public User(String username) {
         this.username = username;
-        this.totalSpent = 0.0;
-    }
-    public String getUsername() {
-        return username;
+        this.totalSpent = 0;
     }
     
     public double getTotalSpent() {
         return totalSpent;
     }
     
-    public void buyProduct(Product product, int quantity) {
-        double totalPrice = product.calculateCost(quantity);
-        if (quantity > product.getQuantity()) {
+    public String getUsername() {
+        return username;
+    }
+    
+    public void buyProduct(Product product, int quality) {
+        if (quality < product.getQuantity()) {
+            System.out.println("User: "
+                    + username
+                    + " bought "
+                    + quality
+                    + " "
+                    + product.getName()
+                    + " for $"
+                    + String.format("%.1f", product.calculateCost(quality))
+            );
+            product.reduceQuantity(quality);
+            totalSpent += product.calculateCost(quality);
+        } else {
             System.out.println("Insufficient quantity of " + product.getName() + " available.");
-            return;
         }
-        System.out.println("User: "
-                + this.username
-                + " bought "
-                + quantity
-                + " "
-                + product.getName()
-                + " for $"
-                + totalPrice);
-        totalSpent += totalPrice;
-        product.reduceQuantity(quantity);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int testCase = Integer.parseInt(sc.nextLine());
+        Electronics electronics = new Electronics("laptop", 20, 10, "Dell");
+        Book book = new Book("Harry Potter", 10, 12, "camnh");
+        User u1 = new User("Alice");
+        User u2 = new User("Bob");
+        User u3 = new User("Charlie");
+     
+        u1.buyProduct(electronics, 3);
+        u1.buyProduct(book, 10);
+        u2.buyProduct(electronics, 1);
+        u3.buyProduct(book, 5);
+        
+        System.out.println("====");
+        System.out.println("Users with Highest Total Spent:");
+        User[] users = {u1, u2, u3};
+        for (int i = 0; i < (users.length -1); i++){
+            for (int j = i + 1; j < users.length; j++){
+                if (users[i].getTotalSpent() < users[j].getTotalSpent()){
+                    User temp = users[i];
+                    users[i] = users[j];
+                    users[i] = temp;
+                    
+                }
+            }
+        }
+        
+        for (int i = 0; i < users.length; i++){
+            System.out.println(i+1 + ". " + users[i].getUsername() + ": $" + String.format("%.1f", users[i].getTotalSpent()));
+        }
+        System.out.println("====");
+        electronics.displayDetails();
+        
+        System.out.println("---");
+        book.displayDetails();
+        
+        sc.close();
     }
 }
