@@ -12,6 +12,8 @@
       <module fileurl="file://$PROJECT_DIR$/CONTEST006/CONTEST006.iml" filepath="$PROJECT_DIR$/CONTEST006/CONTEST006.iml" />
       <module fileurl="file://$PROJECT_DIR$/EXCEPTION001/EXCEPTION001.iml" filepath="$PROJECT_DIR$/EXCEPTION001/EXCEPTION001.iml" />
       <module fileurl="file://$PROJECT_DIR$/EXCEPTION002/EXCEPTION002.iml" filepath="$PROJECT_DIR$/EXCEPTION002/EXCEPTION002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FileWriter/FileWriter.iml" filepath="$PROJECT_DIR$/FileWriter/FileWriter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FileWriter001/FileWriter001.iml" filepath="$PROJECT_DIR$/FileWriter001/FileWriter001.iml" />
       <module fileurl="file://$PROJECT_DIR$/GENERIC001/GENERIC001.iml" filepath="$PROJECT_DIR$/GENERIC001/GENERIC001.iml" />
       <module fileurl="file://$PROJECT_DIR$/GENERIC002/GENERIC002.iml" filepath="$PROJECT_DIR$/GENERIC002/GENERIC002.iml" />
       <module fileurl="file://$PROJECT_DIR$/GENERIC020/GENERIC020.iml" filepath="$PROJECT_DIR$/GENERIC020/GENERIC020.iml" />
@@ -34,6 +36,7 @@
       <module fileurl="file://$PROJECT_DIR$/INHERITANCE011/INHERITANCE011.iml" filepath="$PROJECT_DIR$/INHERITANCE011/INHERITANCE011.iml" />
       <module fileurl="file://$PROJECT_DIR$/INHERITANCE012/INHERITANCE012.iml" filepath="$PROJECT_DIR$/INHERITANCE012/INHERITANCE012.iml" />
       <module fileurl="file://$PROJECT_DIR$/INHERITANCE013/INHERITANCE013.iml" filepath="$PROJECT_DIR$/INHERITANCE013/INHERITANCE013.iml" />
+      <module fileurl="file://$PROJECT_DIR$/INTERFACE001/INTERFACE001.iml" filepath="$PROJECT_DIR$/INTERFACE001/INTERFACE001.iml" />
       <module fileurl="file://$PROJECT_DIR$/INTERFACE003/INTERFACE003.iml" filepath="$PROJECT_DIR$/INTERFACE003/INTERFACE003.iml" />
       <module fileurl="file://$PROJECT_DIR$/INTERFACE005/INTERFACE005.iml" filepath="$PROJECT_DIR$/INTERFACE005/INTERFACE005.iml" />
       <module fileurl="file://$PROJECT_DIR$/KTCOBAN00/KTCOBAN00.iml" filepath="$PROJECT_DIR$/KTCOBAN00/KTCOBAN00.iml" />

@@ -1,0 +1,6 @@
+Java Programming;John Doe;150.5;10
+Python for Beginners;Jane Smith;200.0;5
+Effective Java;Joshua Bloch;300.0;2
+Learning C++;James Bond;180.0;0
+Clean Code;Robert Martin;250.5;7
+Kotlin in Action;Roman Elizarov;220.0;3
